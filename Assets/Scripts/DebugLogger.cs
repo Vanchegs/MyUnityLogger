@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Vanchegs
 {
-    public class DebugLogger : ILogger
+    public sealed class DebugLogger : ILogger
     {
         public void Logging(string message)
         {

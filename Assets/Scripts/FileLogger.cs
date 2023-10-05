@@ -2,13 +2,16 @@ using System.IO;
 
 namespace Vanchegs
 {
-    public class FileLogger : ILogger
+    public sealed class FileLogger : ILogger
     {
-        private StreamWriter writer = new StreamWriter(@"C:\GitHub\MyUnityLogger\Assets\Scripts\TestFile", true);
+        private string filePath = @"C:\GitHub\MyUnityLogger\Assets\Scripts\TestFile";
         
         public void Logging(string message)
         {
-            writer.WriteLine(message);
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine(message);
+            }
         }
     }
 }
