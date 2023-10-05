@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Vanchegs
 {
-    public class DebugLogger : MonoBehaviour, ILogger
+    public class DebugLogger : ILogger
     {
-        public void Logging()
+        public void Logging(string message)
         {
-            Debug.Log("Вывод в консоль прошел успешно!");
+            Debug.Log(message);
         }
     }
 }

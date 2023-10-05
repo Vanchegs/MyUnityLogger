@@ -1,15 +1,14 @@
-using UnityEngine;
 using System.IO;
 
 namespace Vanchegs
 {
     public class FileLogger : ILogger
     {
-        private StreamWriter writer = new StreamWriter(@"C:\GitHub\MyUnityLogger\Assets\Scripts\TestFile");
+        private StreamWriter writer = new StreamWriter(@"C:\GitHub\MyUnityLogger\Assets\Scripts\TestFile", true);
         
-        public void Logging()
+        public void Logging(string message)
         {
-            writer.WriteLine("Вывод в файл прошел успешно!");
+            writer.WriteLine(message);
         }
     }
 }

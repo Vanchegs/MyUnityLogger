@@ -2,6 +2,6 @@ namespace Vanchegs
 {
     public interface ILogger
     {
-        void Logging();
+        void Logging(string message);
     }
 }

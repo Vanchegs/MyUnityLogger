@@ -1,17 +1,17 @@
+using System;
 using UnityEngine;
 using Vanchegs;
 using ILogger = Vanchegs.ILogger;
 
 public class StartAllLoggers : MonoBehaviour
 {
-    private ILogger debugLogger = new DebugLogger();
-    private ILogger fileLogger = new FileLogger();
-    private ILogger gameTextLogger = new GameTextLogger();
-
     private void Start()
     {
-        debugLogger.Logging();
-        fileLogger.Logging();
-        gameTextLogger.Logging();
+        MyCustomLogger(message: "Вывод в консоль прошел успешно!", new DebugLogger());
+        MyCustomLogger(message: "Вывод в файл прошел успешно!", new FileLogger());
+        MyCustomLogger(message: "Красный вывод в консоль прошел успешно!", new ColorDebugLogger());
     }
+
+    private void MyCustomLogger(string message, ILogger logger) =>
+        logger?.Logging(message);
 }
