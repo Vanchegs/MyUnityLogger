@@ -1,16 +1,20 @@
 using UnityEngine;
-using Vanchegs;
-using ILogger = Vanchegs.ILogger;
 
-public sealed class StartAllLoggers : MonoBehaviour
+namespace Vanchegs
 {
-    public void ClickOnLogginButton()
+    public sealed class StartAllLoggers : MonoBehaviour
     {
-        MyCustomLogger(message: "The output to the console was successful!", new DebugLogger());
-        MyCustomLogger(message: "Output to file was successful!", new FileLogger());
-        MyCustomLogger(message: "Color output to the console was successful!", new ColorDebugLogger());
+        private readonly ILogger logger = new DebugLogger();
+        
+        public void ClickOnLoggingButton()
+        {
+            MyCustomLogger(message: "The output to the console was successful!", logger);
+            MyCustomLogger(message: "Output to file was successful!", new FileLogger(@"C:\GitHub\MyUnityLogger\Assets\Scripts\TestFile"));
+            MyCustomLogger(message: "Color output to the console was successful!", new RandomColorDebugLogger());
+        }
+    
+        private void MyCustomLogger(string message, ILogger customLogger) =>
+            customLogger?.Logging(message);
     }
-
-    private void MyCustomLogger(string message, ILogger logger) =>
-        logger?.Logging(message);
 }
+

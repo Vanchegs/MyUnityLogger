@@ -555,7 +555,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 519420034}
         m_TargetAssemblyTypeName: StartAllLoggers, Assembly-CSharp
-        m_MethodName: ClickOnLogginButton
+        m_MethodName: ClickOnLoggingButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -4,7 +4,12 @@ namespace Vanchegs
 {
     public sealed class FileLogger : ILogger
     {
-        private string filePath = @"C:\GitHub\MyUnityLogger\Assets\Scripts\TestFile";
+        private readonly string filePath;
+
+        public FileLogger(string filePath)
+        {
+            this.filePath = filePath;
+        }
         
         public void Logging(string message)
         {
